@@ -1,0 +1,12 @@
+/cpp/packages
+/cpp/Debug
+/cpp/Release
+/cpp/x64
+/cpp/.vs
+/target
+/out
+/.idea
+__pycache__
+/.classpath
+/.project
+/.settings
