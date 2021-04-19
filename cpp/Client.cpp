@@ -45,25 +45,34 @@ std::string AESDecode(std::string encodeRules, std::string content) {
 int main()
 {
 	std::string command;
-	std::cin >> command;
-	if (command == "e") {
-		std::string encodeRules, content;
-		std::cin >> encodeRules;
-		std::cin >> content;
-		std::cout << AESEncode(encodeRules, content);
-		std::cout << std::endl;
-		std::cout << AESDecode(encodeRules, AESEncode(encodeRules, content));
-		std::cout << std::endl;
-	}
-	else if (command == "d")
-	{
-		std::string encodeRules, content;
-		std::cin >> encodeRules;
-		std::cin >> content;
-		std::cout << AESDecode(encodeRules, content);
-		std::cout << std::endl;
-		std::cout << AESEncode(encodeRules, AESDecode(encodeRules, content));
-		std::cout << std::endl;
+	while (true) {
+		std::cout << "Input command (e or d): ";
+		std::cin >> command;
+		if (command == "e") {
+			std::string encodeRules, content;
+			std::cin >> encodeRules;
+			std::cin >> content;
+			std::cout << "Encode result: " << AESEncode(encodeRules, content);
+			std::cout << std::endl;
+			std::cout << "Decode result: " << AESDecode(encodeRules, AESEncode(encodeRules, content));
+			std::cout << std::endl;
+		}
+		else if (command == "d")
+		{
+			std::string encodeRules, content;
+			std::cin >> encodeRules;
+			std::cin >> content;
+			std::cout << "Decode result: " << AESDecode(encodeRules, content);
+			std::cout << std::endl;
+			std::cout << "Encode result: " << AESEncode(encodeRules, AESDecode(encodeRules, content));
+			std::cout << std::endl;
+		}
+		else if (command == "q") {
+			break;
+		}
+		else {
+			std::cout << "Unknown command" << std::endl;
+		}
 	}
 	return 0;
 }
