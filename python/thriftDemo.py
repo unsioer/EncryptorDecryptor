@@ -1,5 +1,4 @@
 from MyAESService import MyAESService
-from MyAESService.ttypes import *
   
 from thrift import Thrift  
 from thrift.transport import TSocket  

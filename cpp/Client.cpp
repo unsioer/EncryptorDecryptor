@@ -17,11 +17,11 @@ std::string AESEncode(std::string encodeRules, std::string content) {
 	std::shared_ptr<TSocket> socket(new TSocket(serverIP, serverPort));
 	std::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
 	std::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	
+
 	transport->open();
-	MyAESServiceClient* client=new MyAESServiceClient(protocol);
+	MyAESServiceClient* client = new MyAESServiceClient(protocol);
 	std::string _return;
-	client->AESEncode(_return,encodeRules, content);
+	client->AESEncode(_return, encodeRules, content);
 	transport->close();
 
 	return _return;
